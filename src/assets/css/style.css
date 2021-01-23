@@ -431,7 +431,8 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .about-box{
-	padding: 70px 0px;
+	/* padding: 70px 0px; */
+	padding-top: 70px;
 }
 
 .title-box{
@@ -462,7 +463,8 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .story-box{
-	padding: 110px 0px;
+	/* padding: 110px 0px; */
+	padding-top: 110px;
 }
 
 .align-left {
@@ -605,7 +607,8 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .gallery-box{
-	padding: 110px 0px;
+	/* padding: 110px 0px; */
+	padding-top: 110px;
 }
 
 .gallery-box ul{}
