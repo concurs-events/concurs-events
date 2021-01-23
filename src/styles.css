@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+.her_bnr {
+    width: 100%;
+}
+.hdr {
+    position: absolute;
+    width: 100%;
+    margin: 15% auto;
+}

@@ -1,0 +1,14 @@
+<ng-container *ngIf='(homeDetails?.heroBanner | json) != "{}"'>
+    <app-hero-banner [heroBanner]='homeDetails.heroBanner'></app-hero-banner>
+</ng-container>
+<ng-container *ngIf='(homeDetails?.rtf | json) != "{}"'>
+    <app-service [rtfList]='homeDetails.rtf'></app-service>
+</ng-container>
+<ng-container *ngIf='(homeDetails?.gallery | json) != "{}"'>
+    <app-gallery [gallery]='homeDetails.gallery'></app-gallery>
+</ng-container>
+<ng-container *ngIf='(homeDetails?.pastEvents | json) != "{}"'>
+    <app-completed-events [pastEvents]='homeDetails.pastEvents'></app-completed-events>
+</ng-container>
+<app-cards></app-cards>
+<app-contact-us></app-contact-us>

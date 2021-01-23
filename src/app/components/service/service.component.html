@@ -1,0 +1,52 @@
+<!-- Start About us -->
+<ng-container *ngFor='let rtf of rtfList'>
+    <div class="about-box">
+        <div id="{{rtf.id}}" class="about-a1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="title-box">
+                            <h2><span>{{rtf.title}}</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <ng-container *ngFor='let section of rtf.sections; let i = index'>
+                            <div class="row align-items-center about-main-info"
+                                *ngIf='i == 0 || i % 2 == 0; else leftAlign'>
+                                <div class="col-lg-8 col-md-6 col-sm-12">
+                                    <h2> {{section.title}}</h2>
+                                    <p>{{section.description}}</p>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="about-img">
+                                        <img class="img-fluid rounded"
+                                            src="{{section.media.url}}?fit=fill&w={{section.media.width}}&h={{section.media.height}}"
+                                            alt="{{section.media.altText}}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <ng-template #leftAlign>
+                                <div class="row align-items-center about-main-info">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="about-img">
+                                            <img class="img-fluid rounded"
+                                                src="{{section.media.url}}?fit=fill&w={{section.media.width}}&h={{section.media.height}}"
+                                                alt="{{section.media.altText}}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-6 col-sm-12">
+                                        <h2> {{section.title}}</h2>
+                                        <p>{{section.description}}</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<!-- End About us -->

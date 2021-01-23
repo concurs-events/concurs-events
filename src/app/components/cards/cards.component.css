@@ -1,0 +1,7 @@
+.cst-card{
+  cursor: pointer;
+}
+
+.cst-card:hover{
+  transform: scale(1.05);
+}

@@ -1,0 +1,25 @@
+<!-- Start header -->
+<header class="top-header" id='header'>
+    <nav class="navbar header-nav navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img
+                    src="{{headerDetail.logo.url}}?fit=fill&w={{headerDetail.logo.width}}&h={{headerDetail.logo.height}}"
+                    alt="{{headerDetail.logo.altText}}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd"
+                aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                <ul class="navbar-nav">
+                    <li *ngFor='let nav of headerDetail.nav'>
+                        <a class="nav-link" [ngClass]="{'active' : nav.name == 'Home'}"
+                            href="#{{nav.fragment}}">{{nav.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- End header -->
