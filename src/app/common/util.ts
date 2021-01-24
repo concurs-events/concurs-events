@@ -4,5 +4,8 @@ export class Util {
     CF_DELIVERY_ACCESS_KEY = '8An7wVkx6PFqqUMe-wpPcIlHihHCHpGkCA-0plecmf0';
     HOME_CONTENT_TYPE = 'homePage';
     HEADER_CONTENT_TYPE = 'header';
+    CONTACT_CONTENT_TYPE = 'contactPage';
+    EVENT_CONTENT_TYPE = 'eventListing';
+    SERVICE_CONTENT_TYPE = 'rtf';
 
 }

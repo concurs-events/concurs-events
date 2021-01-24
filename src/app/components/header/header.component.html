@@ -5,7 +5,7 @@
             <a class="navbar-brand" href="index.html"><img
                     src="{{headerDetail.logo.url}}?fit=fill&w={{headerDetail.logo.width}}&h={{headerDetail.logo.height}}"
                     alt="{{headerDetail.logo.altText}}"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd"
+            <button class="navbar-toggler" id='toggle' type="button" data-toggle="collapse" data-target="#navbar-wd"
                 aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -14,8 +14,10 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                 <ul class="navbar-nav">
                     <li *ngFor='let nav of headerDetail.nav'>
-                        <a class="nav-link" [ngClass]="{'active' : nav.name == 'Home'}"
-                            href="#{{nav.fragment}}">{{nav.name}}</a>
+                        <!-- <a class="nav-link" [ngClass]="{'active' : nav.name == 'Home'}"
+                            href="#{{nav.fragment}}">{{nav.name}}</a> -->
+                        <a class="nav-link" (click)='closeNav();' routerLink="{{nav.link}}"
+                            routerLinkActive="active">{{nav.name}}</a>
                     </li>
                 </ul>
             </div>

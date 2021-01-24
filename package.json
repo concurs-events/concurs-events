@@ -22,6 +22,7 @@
     "angular-font-awesome": "^3.1.2",
     "classlist.js": "^1.1.20150312",
     "font-awesome": "^4.7.0",
+    "ngx-device-detector": "^2.0.5",
     "ngx-lightbox": "^2.2.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

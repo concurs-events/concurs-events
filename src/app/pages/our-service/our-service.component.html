@@ -1,0 +1,7 @@
+<ng-container *ngIf='(ourService?.breadCrumb | json) != "{}"'>
+    <app-breadcrumb [breadCrumb]='ourService.breadCrumb'></app-breadcrumb>
+</ng-container>
+<ng-container *ngIf='(ourService?.rtf | json) != "[]"'>
+    <app-service [rtfList]='ourService.rtf'></app-service>
+</ng-container>
+<div style="padding: 70px 0;"></div>

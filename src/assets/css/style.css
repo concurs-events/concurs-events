@@ -431,8 +431,8 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .about-box{
-	/* padding: 70px 0px; */
 	padding-top: 70px;
+	/* padding: 70px 0px; */
 }
 
 .title-box{
@@ -463,8 +463,7 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .story-box{
-	/* padding: 110px 0px; */
-	padding-top: 110px;
+	padding-top: 70px;
 }
 
 .align-left {
@@ -607,8 +606,7 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .gallery-box{
-	/* padding: 110px 0px; */
-	padding-top: 110px;
+	padding-top: 70px;
 }
 
 .gallery-box ul{}
@@ -672,7 +670,7 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .events-box{
-	padding: 70px 0px;
+	padding-top: 70px;
 }
 .event-inner{
 	margin-bottom: 30px;

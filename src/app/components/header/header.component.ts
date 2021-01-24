@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, Input, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-header',
@@ -10,17 +11,13 @@ import { Router, NavigationEnd } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   @Input() headerDetail;
+  public isMobile
 
-  constructor(@Inject(DOCUMENT) private document: Document, public router: Router, private elem: ElementRef,) {
-    // router.events.subscribe(s => {
-    //   if (s instanceof NavigationEnd) {
-    //     const tree = router.parseUrl(router.url);
-    //     if (tree.fragment) {
-    //       const element = document.querySelector("#" + tree.fragment);
-    //       if (element) { element.scrollIntoView(true); }
-    //     }
-    //   }
-    // });
+  constructor(@Inject(DOCUMENT) private document: Document,
+    public router: Router,
+    private deviceService: DeviceDetectorService,
+    private elem: ElementRef,) {
+    this.isMobile = this.deviceService.isMobile();
   }
 
   ngOnInit(): void {
@@ -30,15 +27,20 @@ export class HeaderComponent implements OnInit {
   onWindowScroll() {
     if (document.body.scrollTop > 50 ||
       document.documentElement.scrollTop > 50) {
-      this.document.getElementById('header').classList.add('fixed-menu');
+      this.document.getElementById('header')?.classList.add('fixed-menu');
     } else {
-      this.document.getElementById('header').classList.remove('fixed-menu');
+      this.document.getElementById('header')?.classList.remove('fixed-menu');
     }
   }
 
-  navigate(event) {
-    let obj = event.currentTarget
-    this.elem.nativeElement.querySelector('.active')?.classList.remove('active')
-    obj.classList.add('active')
+  closeNav() {
+    if (this.isMobile) {
+      let btn = this.elem.nativeElement.querySelector('#toggle')
+      if (btn.getAttribute('aria-expanded')) {
+        btn.setAttribute('aria-expanded', 'false')
+        btn.classList.add('collapsed')
+        this.elem.nativeElement.querySelector('#navbar-wd')?.classList.remove('show')
+      }
+    }
   }
 }

@@ -1,0 +1,8 @@
+<ng-container *ngIf='(eventListingDetails?.breadCrumb | json) != "{}"'>
+    <app-breadcrumb [breadCrumb]='eventListingDetails.breadCrumb'></app-breadcrumb>
+</ng-container>
+<ng-container *ngIf='(eventListingDetails?.pastEvents | json) != "{}"'>
+    <app-completed-events [pastEvents]='eventListingDetails.pastEvents'></app-completed-events>
+</ng-container>
+<app-cards></app-cards>
+<div style="padding-top: 70px;"></div>

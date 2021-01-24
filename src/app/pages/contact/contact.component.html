@@ -1,0 +1,7 @@
+<ng-container *ngIf='(contactDetails?.breadCrumb | json) != "{}"'>
+    <app-breadcrumb [breadCrumb]='contactDetails.breadCrumb'></app-breadcrumb>
+</ng-container>
+<ng-container *ngIf='showLocation'>
+    <app-location [locationDetails]='contactDetails'></app-location>
+</ng-container>
+<app-contact-us></app-contact-us>

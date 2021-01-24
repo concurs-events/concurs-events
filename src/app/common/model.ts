@@ -7,3 +7,8 @@ export { TwoCol } from '@model/two-col';
 export { Timeline } from '@model/timeline';
 export { HeaderDetails } from '@model/header-details';
 export { Nav } from '@model/nav';
+export { Contact } from '@model/contact';
+export { BreadCrumb } from '@model/bread-crumb';
+export { EventsListing } from '@model/events-listing';
+export { OurService } from '@model/our-service';
+export { AboutUs } from '@model/about-us';

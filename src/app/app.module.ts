@@ -17,6 +17,13 @@ import { Util } from '@app/common/util';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LightboxModule } from 'ngx-lightbox';
+import { ContactComponent } from './pages/contact/contact.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { LocationComponent } from './components/location/location.component';
+import { EventsListingComponent } from './pages/events-listing/events-listing.component';
+import { OurServiceComponent } from './pages/our-service/our-service.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +37,13 @@ import { LightboxModule } from 'ngx-lightbox';
     CardsComponent,
     ContactUsComponent,
     FooterComponent,
+    ContactComponent,
+    BreadcrumbComponent,
+    LocationComponent,
+    EventsListingComponent,
+    OurServiceComponent,
+    AboutUsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

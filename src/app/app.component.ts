@@ -35,10 +35,10 @@ export class AppComponent implements OnInit {
             assetData = this.contentfulService.formatData(data['includes'].Asset)
           }
 
-          this.headerDetail = new HeaderDetails
+          let headerDetail = new HeaderDetails
 
           if ('logo' in pageFields) {
-            this.headerDetail.logo = this.contentfulService.fetchMediaDetails(pageFields.logo.sys.id, entryData, assetData)
+            headerDetail.logo = this.contentfulService.fetchMediaDetails(pageFields.logo.sys.id, entryData, assetData)
           }
 
           if ('nav' in pageFields) {
@@ -51,9 +51,10 @@ export class AppComponent implements OnInit {
                 element.fragment
               ))
             });
-            this.headerDetail.nav = navList
+            headerDetail.nav = navList
+            this.headerDetail = headerDetail
+
           }
-          console.log(this.headerDetail)
 
         }
       });

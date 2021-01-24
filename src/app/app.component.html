@@ -1,4 +1,4 @@
-<ng-container *ngIf='(headerDetail | json) != "{}"'>
+<ng-container *ngIf='headerDetail'>
     <app-header [headerDetail]='headerDetail'></app-header>
 </ng-container>
 <router-outlet></router-outlet>

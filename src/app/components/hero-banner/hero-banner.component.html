@@ -1,25 +1,48 @@
-<!-- Start Banner -->
-<div class="ulockd-home-slider">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="pogoSlider" id="js-main-slider">
-                <div>
-                    <div class="lbox-caption">
-                        <div class="lbox-details">
-                            <div class='hdr'>
-                                <h1>{{heroBanner.title}}</h1>
-                                <!-- <h2>We're getting married</h2> -->
-                                <p>{{heroBanner.description}}</p>
-                                <!-- <a href="#" class="btn ">Contact</a> -->
+<div class="slider-area position-relative"
+    style="background-image: url({{heroBanner.heroImage.url}}?fit=fill&w={{heroBanner.heroImage.width}}&h={{heroBanner.heroImage.height}});">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-8 col-md-9 col-sm-10">
+                        <div class="hero__caption">
+                            <h1>{{heroBanner.title}}</h1>
+                            <!-- Hero-btn -->
+                            <div class="slider-btns">
+                                <span>{{heroBanner.description}}</span>
+                                <!-- <a class="popup-video video-btn" href="https://www.youtube.com/watch?v=up68UAfH0d0">
+                                    <i class="fas fa-play"></i></a> -->
+                                <!-- <p class="video-cap d-none d-sm-blcok">
+                                    Story Vidoe<br> Watch</p> -->
                             </div>
-                            <img class='her_bnr'
-                                src='{{heroBanner.heroImage.url}}?fit=fill&w={{heroBanner.heroImage.width}}&h={{heroBanner.heroImage.height}}'
-                                alt="{{heroBanner.heroImage.altText}}">
+                            <a href="#contact" class="btn hero-btn">Contact Us</a>
                         </div>
                     </div>
                 </div>
-            </div><!-- .pogoSlider -->
+            </div>
         </div>
     </div>
+    <!-- Counter Section Begin -->
+    <div class="counter-section d-none d-sm-block" *ngIf='heroBanner.date'>
+        <div class="cd-timer" id="countdown">
+            <div class="cd-item">
+                <span>96</span>
+                <p>Days</p>
+            </div>
+            <div class="cd-item">
+                <span>15</span>
+                <p>Hrs</p>
+            </div>
+            <div class="cd-item">
+                <span>07</span>
+                <p>Min</p>
+            </div>
+            <div class="cd-item">
+                <span>02</span>
+                <p>Sec</p>
+            </div>
+        </div>
+    </div>
+    <!-- Counter Section End -->
 </div>
-<!-- End Banner -->
