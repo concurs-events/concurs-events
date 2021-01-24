@@ -19,7 +19,7 @@ export class AboutUsComponent implements OnInit {
   formBreadCrumb() {
     let braedCrumbDetails = {}
     let list = []
-    braedCrumbDetails['title'] = 'Contact Us'
+    braedCrumbDetails['title'] = 'About Us'
     list.push(new BreadCrumb(
       'Home',
       '/home'
