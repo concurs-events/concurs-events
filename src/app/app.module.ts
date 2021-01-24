@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
@@ -24,6 +24,7 @@ import { EventsListingComponent } from './pages/events-listing/events-listing.co
 import { OurServiceComponent } from './pages/our-service/our-service.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AboutComponent } from './components/about/about.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -51,9 +52,11 @@ import { AboutComponent } from './components/about/about.component';
     AppRoutingModule,
     HttpClientModule,
     LightboxModule,
+    NgxSpinnerModule,
   ],
   providers: [ContentfulService,
     Util],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

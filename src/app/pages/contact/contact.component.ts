@@ -49,8 +49,8 @@ export class ContactComponent implements OnInit {
       '/home'
     ))
     list.push(new BreadCrumb(
-      'About',
-      'about'
+      'Contact',
+      'contact'
     ))
     braedCrumbDetails['list'] = list
     return braedCrumbDetails

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterEvent } from '@angular/router';
 import { HeaderDetails, Nav } from '@app/common/model';
 import { Util } from '@app/common/util';
 import { ContentfulService } from '@app/service/contentful/contentful.service';
 import { take } from 'rxjs/operators';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-root',
@@ -12,9 +14,20 @@ import { take } from 'rxjs/operators';
 export class AppComponent implements OnInit {
 
   public headerDetail: HeaderDetails
+  public showOverlay = true;
 
   constructor(private contentfulService: ContentfulService,
-    private util: Util,) { }
+    private util: Util, private router: Router, private spinner: NgxSpinnerService) {
+    router.events.subscribe((event: RouterEvent) => {
+      /** spinner starts on init */
+      this.spinner.show();
+
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
+    })
+  }
 
   ngOnInit(): void {
     this.contentfulService.getDataFromContententFul(this.util.HEADER_CONTENT_TYPE).pipe(take(1))
