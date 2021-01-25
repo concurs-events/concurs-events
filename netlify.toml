@@ -1,0 +1,12 @@
+# Production context:
+# All deploys from the main repository branch
+# will inherit these settings.
+[context.production]
+  command = "ng build --prod"
+  
+
+# Specific branch context:
+# Deploys from this branch will take these settings
+# and override their current ones.
+[context.branch-deploy]
+  command = "npm run build:ssr"
