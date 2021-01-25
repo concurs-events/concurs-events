@@ -25,6 +25,8 @@ import { OurServiceComponent } from './pages/our-service/our-service.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AboutComponent } from './components/about/about.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -53,9 +55,12 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpClientModule,
     LightboxModule,
     NgxSpinnerModule,
+    LazyLoadImageModule,
+    BrowserAnimationsModule,
   ],
   providers: [ContentfulService,
-    Util],
+    Util,
+    { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })

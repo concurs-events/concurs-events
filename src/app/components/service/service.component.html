@@ -21,8 +21,9 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                     <div class="about-img">
-                                        <img class="img-fluid rounded"
-                                            src="{{section.media.url}}?fit=fill&w={{section.media.width}}&h={{section.media.height}}"
+                                        <img class="img-fluid rounded" [defaultImage]="defaultImage"
+                                            [lazyLoad]="section.media.url + '?fit=fill&w=' + section.media.width + '&h=' + section.media.height"
+                                            [errorImage]="section.media.url + '?fit=fill&w=' + section.media.width + '&h=' + section.media.height"
                                             alt="{{section.media.altText}}" />
                                     </div>
                                 </div>
@@ -31,8 +32,9 @@
                                 <div class="row align-items-center about-main-info">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="about-img">
-                                            <img class="img-fluid rounded"
-                                                src="{{section.media.url}}?fit=fill&w={{section.media.width}}&h={{section.media.height}}"
+                                            <img class="img-fluid rounded" [defaultImage]="defaultImage"
+                                                [lazyLoad]="section.media.url + '?fit=fill&w=' + section.media.width + '&h=' + section.media.height"
+                                                [errorImage]="section.media.url + '?fit=fill&w=' + section.media.width + '&h=' + section.media.height"
                                                 alt="{{section.media.altText}}" />
                                         </div>
                                     </div>

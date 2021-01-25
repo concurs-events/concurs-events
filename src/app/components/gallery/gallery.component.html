@@ -14,7 +14,9 @@
                 <li *ngFor='let media of gallery.itemsList;let i = index;'>
                     <a href="{{media.url}}?fit=fill&w={{media.width}}&h={{media.height}}"
                         (click)='$event.preventDefault(); open(i)'>
-                        <img class="img-fluid" src="{{media.url}}?fit=fill&w={{media.width}}&h={{media.height}}"
+                        <img class="img-fluid" [defaultImage]="defaultImage"
+                            [lazyLoad]="media.url + '?fit=fill&w=' + media.width + '&h=' + media.height"
+                            [errorImage]="media.url + '?fit=fill&w=' + media.width + '&h=' + media.height"
                             alt="{{media.altText}}">
                         <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
                     </a>

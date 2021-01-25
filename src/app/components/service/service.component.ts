@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ServiceComponent implements OnInit {
 
   @Input() rtfList
+  public defaultImage = '/assets/img_px.gif';
 
   constructor() { }
 

@@ -10,6 +10,7 @@ export class GalleryComponent implements OnInit {
 
   @Input() gallery
   private album = [];
+  public defaultImage = '/assets/img_px.gif';
 
   constructor(private _lightbox: Lightbox, private _lightboxConfig: LightboxConfig) {
     _lightboxConfig.disableScrolling = true;
