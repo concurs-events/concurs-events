@@ -3,6 +3,7 @@
 # will inherit these settings.
 [context.production]
   command = "npm run prerender"
+  publish = "dist/concurs-events/browser"
   
 
 # Specific branch context:
@@ -10,3 +11,4 @@
 # and override their current ones.
 [context.branch-deploy]
   command = "npm run prerender"
+  publish = "dist/concurs-events/browser"
