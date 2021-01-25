@@ -30,8 +30,6 @@ export class GalleryComponent implements OnInit {
 
   open(index: number): void {
     // open lightbox
-    console.log(index)
-    console.log(this.album)
     this._lightbox.open(this.album, index);
   }
 
