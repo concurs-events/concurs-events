@@ -24,7 +24,6 @@ import { EventsListingComponent } from './pages/events-listing/events-listing.co
 import { OurServiceComponent } from './pages/our-service/our-service.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AboutComponent } from './components/about/about.component';
-import { NgxSpinnerModule } from "ngx-spinner";
 import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -54,7 +53,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     LightboxModule,
-    NgxSpinnerModule,
     LazyLoadImageModule,
     BrowserAnimationsModule,
   ],

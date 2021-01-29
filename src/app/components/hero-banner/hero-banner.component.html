@@ -1,5 +1,5 @@
-<div class="slider-area position-relative"
-    style="background-image: url({{heroBanner.heroImage.url}}?fit=fill&w={{heroBanner.heroImage.width}}&h={{heroBanner.heroImage.height}});">
+<div class="slider-area position-relative" style="background-image: url(/assets/1920x800.png);"
+    [lazyLoad]="heroBanner.heroImage.url + '?fit=fill&w=' + heroBanner.heroImage.width + '&h=' + heroBanner.heroImage.height">
     <div class="slider-active">
         <!-- Single Slider -->
         <div class="single-slider slider-height d-flex align-items-center">
@@ -16,7 +16,7 @@
                                 <!-- <p class="video-cap d-none d-sm-blcok">
                                     Story Vidoe<br> Watch</p> -->
                             </div>
-                            <a href="#contact" class="btn hero-btn">Contact Us</a>
+                            <a href="/contact" class="btn hero-btn">Contact Us</a>
                         </div>
                     </div>
                 </div>

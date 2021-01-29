@@ -32,7 +32,6 @@
     "ng-lazyload-image": "^9.1.0",
     "ngx-device-detector": "^2.0.5",
     "ngx-lightbox": "^2.2.2",
-    "ngx-spinner": "^10.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "web-animations-js": "^2.3.2",
