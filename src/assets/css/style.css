@@ -17,11 +17,15 @@
     SKELETON
 -------------------------------------------------------------------*/
 
+html {
+    height: 100%;
+}
 body {
     color: #666666;
     font-size: 15px;
     font-family: 'Barlow', sans-serif;
-    line-height: 1.80857;
+	line-height: 1.80857;
+	min-height: 100%;
 }
 
 
