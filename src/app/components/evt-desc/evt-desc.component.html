@@ -1,0 +1,54 @@
+<section class="about-low-area section-padding2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="about-caption mb-50">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle mb-35">
+                        <h2>{{eventDesc.title}}</h2>
+                    </div>
+                    <span class='rtf' [innerHTML]='eventDesc.description'>
+                        {{eventDesc.description}}
+                    </span>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-10">
+                        <div class="single-caption mb-20">
+                            <div class="caption-icon">
+                                <span class="flaticon-communications-1"><i class="fa fa-location-arrow"
+                                        aria-hidden="true"></i></span>
+                            </div>
+                            <div class="caption">
+                                <h5>Where</h5>
+                                <p>{{eventDesc.address}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-10">
+                        <div class="single-caption mb-20">
+                            <div class="caption-icon">
+                                <span class="flaticon-education pdb-6"><i class="fa fa-calendar-check-o"
+                                        aria-hidden="true"></i></span>
+                            </div>
+                            <div class="caption">
+                                <h5>When</h5>
+                                <p>{{eventDesc.date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12" *ngIf='eventDesc.media'>
+                <!-- about-img -->
+                <div class="about-img ">
+                    <div class="about-back-img ">
+                        <img [defaultImage]="defaultImage"
+                            [lazyLoad]="eventDesc.media?.url + '?fit=fill&w=' + eventDesc.media?.width + '&h=' + eventDesc.media?.height"
+                            [errorImage]="eventDesc.media?.url + '?fit=fill&w=' + eventDesc.media?.width + '&h=' + eventDesc.media?.height"
+                            alt="{{eventDesc.media?.altText}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

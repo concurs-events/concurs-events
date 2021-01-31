@@ -1,0 +1,147 @@
+/*---------------------
+  Pricing Section
+-----------------------*/
+
+.pricing-section {
+	padding-top: 90px;
+	padding-bottom: 80px;
+}
+
+.pricing-section .section-title {
+	margin-bottom: 88px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #171822;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+.pricing-section .section-title p {
+	color: #a0a1b5;
+}
+
+.price-item {
+	background: #ffffff;
+	text-align: center;
+	padding-top: 34px;
+	padding-bottom: 18px;
+    position: relative;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
+    transition: 0.3s;
+	border-radius: 2px;
+	margin-bottom: 40px;
+}
+
+.price-item.top-rated {
+	margin-top: -36px;
+}
+
+.price-item .tr-tag {
+	width: 28px;
+	height: 50px;
+	line-height: 38px;
+	-webkit-clip-path: polygon(100% 0%, 100% 100%, 50% 65%, 0% 100%, 0% 0%);
+	clip-path: polygon(100% 0%, 100% 100%, 50% 65%, 0% 100%, 0% 0%);
+	position: absolute;
+	right: 26px;
+	top: 0;
+}
+
+.price-item .tr-tag i {
+	color: #ffffff;
+}
+
+.price-item h4 {
+	color: #171822;
+	font-weight: 700;
+	text-transform: uppercase;
+    margin-bottom: 26px;
+    font-size: 24px;
+}
+
+.price-item .pi-price {
+	padding-top: 16px;
+	padding-bottom: 14px;
+    margin-bottom: 38px;
+    background-image: linear-gradient(
+120deg
+, #2d3092 0%,#2d3092 100%), linear-gradient(
+120deg
+,#2d3092 0%, #2d3092 100%);
+}
+
+.price-item .pi-price h2 {
+	font-size: 60px;
+	color: #ffffff;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	display: inline-block;
+	position: relative;
+	padding-left: 20px;
+}
+
+.price-item:hover {
+    box-shadow: 0 8px 25px 0 rgba(0,0,0,0.2);
+}
+
+.price-item .pi-price h2 span {
+	font-size: 30px;
+	position: absolute;
+	left: 0px;
+	top: 9px;
+}
+
+.price-item ul li {
+	list-style: none;
+	font-size: 16px;
+	color: #6a6b7c;
+	line-height: 38px;
+}
+
+.price-item .price-btn {
+	font-size: 16px;
+	color: #171822;
+	font-weight: 600;
+	display: inline-block;
+	background: #ffffff;
+	padding: 10px 85px;
+	border-radius: 50px;
+	-webkit-box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+	position: relative;
+	bottom: -39px;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.price-item .price-btn:hover {
+	background: #63c7bd;
+	  color: #ffffff;
+}
+
+.price-item .price-btn:hover span {
+	color: #ffffff;
+}
+
+.price-item .price-btn span {
+	color: #f44949;
+	position: relative;
+	top: 3px;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+@media only screen and (max-width: 991px) {
+.price-item.top-rated {
+    margin-top: 0;
+}
+}

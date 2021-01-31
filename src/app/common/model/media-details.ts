@@ -1,6 +1,7 @@
 export class MediaDetails {
 
     public name: string;
+    public title: string;
     public altText: string;
     public width: string;
     public height: string;
@@ -10,6 +11,7 @@ export class MediaDetails {
     constructor(
 
         name: string = '',
+        title: string = '',
         altText: string = '',
         width: string = '',
         height: string = '',
@@ -18,6 +20,7 @@ export class MediaDetails {
     ) {
 
         this.name = name
+        this.title = title
         this.altText = altText
         this.width = width
         this.height = height

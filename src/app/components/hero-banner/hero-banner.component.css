@@ -37,11 +37,11 @@
     overflow: hidden
   }
   
-  @media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* @media only screen and (min-width: 576px) and (max-width: 767px) {
     .slider-area .hero__caption {
-      padding-bottom: 100px
+      padding: 100px 0px
     }
-  }
+  } */
   
   .slider-area .hero__caption span {
     font-size: 18px;
@@ -455,4 +455,10 @@
   
   .counter-section .cd-timer .cd-item:first-child {
     margin-left: 0
+  }
+
+  @media only screen and (max-width: 767px) {
+    .container {
+      max-width: 653px;
+  }
   }

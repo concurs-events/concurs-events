@@ -35,7 +35,6 @@ export class ContactComponent implements OnInit {
           this.contactDetails.website = pageFields.website
           this.contactDetails.loction = pageFields.location
           this.showLocation = true
-          console.log(this.contactDetails)
         }
       });
   }

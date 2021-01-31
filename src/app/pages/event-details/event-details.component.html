@@ -1,0 +1,19 @@
+<ng-container *ngIf='(eventsDetails.heroBanner | json) != "{}"'>
+    <app-hero-banner [heroBanner]='eventsDetails.heroBanner'></app-hero-banner>
+</ng-container>
+<ng-container *ngIf='eventsDetails.startDate != ""'>
+    <app-counter [startDate]='eventsDetails.startDate'></app-counter>
+</ng-container>
+<ng-container *ngIf='(eventsDetails.eventDesc | json) != {}'>
+    <app-evt-desc [eventDesc]='eventsDetails.eventDesc'></app-evt-desc>
+</ng-container>
+<ng-container *ngIf='(eventsDetails.people | json) != {}'>
+    <app-people [peopleDetails]='eventsDetails.people'></app-people>
+</ng-container>
+<app-pricing></app-pricing>
+<ng-container *ngIf='(eventsDetails.sponser | json) != {}'>
+    <app-sponsers [sponserDetails]='eventsDetails.sponser'></app-sponsers>
+</ng-container>
+<ng-container *ngIf='(eventsDetails.location | json) != {}'>
+    <app-location [locationDetails]='eventsDetails.location'></app-location>
+</ng-container>

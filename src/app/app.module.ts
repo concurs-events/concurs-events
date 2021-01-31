@@ -26,6 +26,12 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AboutComponent } from './components/about/about.component';
 import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EventDetailsComponent } from '@pages/event-details/event-details.component';
+import { CounterComponent } from '@app/components/counter/counter.component';
+import { EvtDescComponent } from '@app/components/evt-desc/evt-desc.component';
+import { PeopleComponent } from '@app/components/people/people.component';
+import { PricingComponent } from '@app/components/pricing/pricing.component';
+import { SponsersComponent } from '@app/components/sponsers/sponsers.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +52,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OurServiceComponent,
     AboutUsComponent,
     AboutComponent,
+    EventDetailsComponent,
+    CounterComponent,
+    EvtDescComponent,
+    PeopleComponent,
+    PricingComponent,
+    SponsersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

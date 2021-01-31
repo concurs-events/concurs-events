@@ -7,5 +7,20 @@ export class Util {
     CONTACT_CONTENT_TYPE = 'contactPage';
     EVENT_CONTENT_TYPE = 'eventListing';
     SERVICE_CONTENT_TYPE = 'rtf';
+    EVENT_DETAILS_CONTENT_TYPE = 'eventPage';
+
+    notBlankOrEmpty(input): boolean {
+        if (input != undefined && input != '' && input != {} && input != []) {
+            return true
+        }
+        return false
+    }
+
+    isStringNotEmpty(str: string): boolean {
+        if (str != undefined && str.trim() != '') {
+            return true
+        }
+        return false
+    }
 
 }

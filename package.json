@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/platform-server": "~10.2.0",
     "@angular/router": "~10.2.0",
+    "@contentful/rich-text-html-renderer": "^14.1.2",
+    "@contentful/rich-text-react-renderer": "^14.1.2",
     "@nguniversal/express-engine": "^10.1.0",
     "angular-font-awesome": "^3.1.2",
     "classlist.js": "^1.1.20150312",

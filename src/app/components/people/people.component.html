@@ -1,0 +1,28 @@
+<section class="team-area pt-180 pb-100 section-bg bg-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-9">
+                <!-- Section Tittle -->
+                <div class="section-tittle section-tittle2 mb-50">
+                    <h2>{{peopleDetails.title}}</h2>
+                    <p>{{peopleDetails.shortDescription}}</p>
+                    <!-- <a href="#" class="btn white-btn mt-30">View Spackert</a> -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor='let media of peopleDetails.itemsList;'>
+                <div class="single-team mb-30">
+                    <div class="team-img">
+                        <img class="img-fluid" [defaultImage]="defaultImage"
+                            [lazyLoad]="media.url + '?fit=fill&w=' + media.width + '&h=' + media.height"
+                            [errorImage]="media.url + '?fit=fill&w=' + media.width + '&h=' + media.height"
+                            alt="{{media.altText}}">
+                    </div>
+                    <div class="team-caption">
+                        <h3><a href="#">{{media.name}}</a></h3>
+                        <p>{{media.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
