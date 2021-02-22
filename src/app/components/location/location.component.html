@@ -4,37 +4,32 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="section-title">
-                    <h2>{{locationDetails.title}}</h2>
-                    <p>{{locationDetails.shortDesc}}</p>
+                    <h2>{{contactDetails.title}}</h2>
+                    <p>{{contactDetails.shortDesc}}</p>
                 </div>
                 <div class="cs-text">
-                    <div class="ct-address" *ngIf='locationDetails.address'>
+                    <div class="ct-address" *ngIf='contactDetails.address'>
                         <span>Address:</span>
-                        <p [innerHTML]='locationDetails.address'>{{locationDetails.address}}</p>
+                        <p [innerHTML]='contactDetails.address'>{{contactDetails.address}}</p>
                     </div>
                     <ul>
-                        <li *ngIf='locationDetails.phone'>
+                        <li *ngIf='contactDetails.phone'>
                             <span>Phone:</span>
-                            {{locationDetails.phone}}
+                            {{contactDetails.phone}}
                         </li>
-                        <li *ngIf='locationDetails.email'>
+                        <li *ngIf='contactDetails.email'>
                             <span>Email:</span>
-                            {{locationDetails.email}}
+                            {{contactDetails.email}}
                         </li>
                     </ul>
-                    <div class="ct-links" *ngIf='locationDetails.website'>
+                    <div class="ct-links" *ngIf='contactDetails.website'>
                         <span>Website:</span>
-                        <p>{{locationDetails.website}}</p>
+                        <p>{{contactDetails.website}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6" *ngIf='locationDetails.loction'>
-                <div class="cs-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7771.540402775072!2d80.25497946292117!3d13.113739158204963!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52659131035d9f%3A0xca1f36dfca439312!2sGanesh%20Puram%2C%20Perambur%2C%20Chennai%2C%20Tamil%20Nadu%20600039!5e0!3m2!1sen!2sin!4v1611473287171!5m2!1sen!2sin"
-                        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
-                        aria-hidden="false" tabindex="0"></iframe>
-                </div>
+            <div class="col-lg-6" *ngIf='contactDetails.loction'>
+                <div class="cs-map" [innerHTML]='iframe'></div>
             </div>
         </div>
     </div>

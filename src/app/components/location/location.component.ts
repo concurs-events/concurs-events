@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-location',
@@ -7,11 +9,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LocationComponent implements OnInit {
 
-  @Input() locationDetails
+  @Input() contactDetails
+  public iframe
 
-  constructor() { }
+  constructor(protected _sanitizer: DomSanitizer) {
+  }
 
   ngOnInit(): void {
+    console.log('details', this.contactDetails)
+    this.iframe = this._sanitizer.bypassSecurityTrustHtml(this.contactDetails.loction)
+  }
+
+  getIframeUrl(location) {
+    this.iframe = this._sanitizer.bypassSecurityTrustHtml(location)
   }
 
 }

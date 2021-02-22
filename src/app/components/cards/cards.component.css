@@ -5,3 +5,29 @@
 .cst-card:hover{
   transform: scale(1.05);
 }
+
+.cst-card p{
+  color: #767676 !important;
+}
+
+.h3{
+  color: #000;
+}
+
+.tx-ctr {
+  text-align: center;
+}
+
+.tx-int {
+  text-align: initial;
+}
+
+.vi_mr{
+  padding: 10px;
+  color: #dd666c;
+  font-size: 20px;
+}
+
+.vi_mr:hover {
+  text-decoration: underline !important;
+}

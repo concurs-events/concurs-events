@@ -44,7 +44,10 @@ export class HomeComponent implements OnInit {
             this.homeDetails.rtf = this.fetchRtfDetails(pageFields.rtf, entryData, assetData)
           }
           if ('pastEvents' in pageFields) {
-            this.homeDetails.pastEvents = this.fetchPastEvents(pageFields.pastEvents.sys.id, entryData)
+            this.homeDetails.pastEvents = this.fetchPastEvents(pageFields.pastEvents.sys.id, entryData, 'lt')
+          }
+          if ('upcomingEvents' in pageFields) {
+            this.homeDetails.events = this.fetchPastEvents(pageFields.upcomingEvents.sys.id, entryData, 'gt', '3')
           }
           if ('gallery' in pageFields) {
             this.homeDetails.gallery = this.fetchGallery(pageFields.gallery.sys.id, entryData, assetData)
@@ -92,30 +95,13 @@ export class HomeComponent implements OnInit {
     return rtfDetails
   }
 
-  fetchPastEvents(id, entryData) {
+  fetchPastEvents(id, entryData, type, limit?) {
     let pastEvents: TwoCol = new TwoCol
-    let timelineList: Timeline[] = []
-    let timelineObj: Timeline
     let curObj = entryData[id]?.fields
-    if (curObj && curObj.lists && curObj.lists.length > 0) {
-      pastEvents.title = curObj.tilte
-      pastEvents.id = curObj.id
-      pastEvents.shortDescription = curObj.shortDesc
-      curObj.lists.forEach(element => {
-        timelineObj = new Timeline
-        element = entryData[element.sys.id].fields
-        if (element) {
-          timelineObj.date = this.datePipe.transform(
-            element.date,
-            "dd MMM yyyy"
-          );
-          timelineObj.title = element.title
-          timelineObj.description = element.description
-          timelineList.push(timelineObj)
-        }
-      });
-      pastEvents.itemsList = timelineList
-    }
+    pastEvents.title = curObj.tilte
+    pastEvents.id = curObj.id
+    pastEvents.shortDescription = curObj.shortDesc
+    pastEvents.itemsList = this.contentfulService.getEventsList(type, limit)
     return pastEvents
   }
 

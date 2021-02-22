@@ -25,7 +25,9 @@ export class CounterComponent implements OnInit {
     let startDate = new Date(this.startDate);
     let currentDate = new Date()
     let days, hours, minutes, seconds;
-
+    console.log(startDate)
+    console.log(currentDate)
+    console.log(startDate > currentDate)
     if (startDate > currentDate) {
       this.showCounter = true
       this.counter = interval(1000).subscribe(x => {
@@ -43,10 +45,6 @@ export class CounterComponent implements OnInit {
         this.seconds = seconds
       });
     }
-  }
-
-  ngOnDestroy(): void {
-    this.counter.unsubscribe();
   }
 
 }

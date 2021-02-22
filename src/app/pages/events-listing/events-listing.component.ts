@@ -34,7 +34,10 @@ export class EventsListingComponent implements OnInit {
           }
 
           if ('pastEvents' in pageFields) {
-            this.eventListingDetails.pastEvents = this.fetchPastEvents(pageFields.pastEvents.sys.id, entryData)
+            this.eventListingDetails.pastEvents = this.fetchPastEvents(pageFields.pastEvents.sys.id, entryData, 'lt')
+          }
+          if ('upcomingEvents' in pageFields) {
+            this.eventListingDetails.events = this.fetchPastEvents(pageFields.upcomingEvents.sys.id, entryData, 'gt')
           }
         }
       });
@@ -56,30 +59,13 @@ export class EventsListingComponent implements OnInit {
     return braedCrumbDetails
   }
 
-  fetchPastEvents(id, entryData) {
+  fetchPastEvents(id, entryData, type) {
     let pastEvents: TwoCol = new TwoCol
-    let timelineList: Timeline[] = []
-    let timelineObj: Timeline
     let curObj = entryData[id]?.fields
-    if (curObj && curObj.lists && curObj.lists.length > 0) {
-      pastEvents.title = curObj.tilte
-      pastEvents.id = curObj.id
-      pastEvents.shortDescription = curObj.shortDesc
-      curObj.lists.forEach(element => {
-        timelineObj = new Timeline
-        element = entryData[element.sys.id].fields
-        if (element) {
-          timelineObj.date = this.datePipe.transform(
-            element.date,
-            "dd MMM yyyy"
-          );
-          timelineObj.title = element.title
-          timelineObj.description = element.description
-          timelineList.push(timelineObj)
-        }
-      });
-      pastEvents.itemsList = timelineList
-    }
+    pastEvents.title = curObj.tilte
+    pastEvents.id = curObj.id
+    pastEvents.shortDescription = curObj.shortDesc
+    pastEvents.itemsList = this.contentfulService.getEventsList(type)
     return pastEvents
   }
 

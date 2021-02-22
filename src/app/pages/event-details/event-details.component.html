@@ -14,6 +14,6 @@
 <ng-container *ngIf='(eventsDetails.sponser | json) != {}'>
     <app-sponsers [sponserDetails]='eventsDetails.sponser'></app-sponsers>
 </ng-container>
-<ng-container *ngIf='(eventsDetails.location | json) != {}'>
-    <app-location [locationDetails]='eventsDetails.location'></app-location>
+<ng-container *ngIf='contactDetails'>
+    <app-location [contactDetails]='contactDetails'></app-location>
 </ng-container>

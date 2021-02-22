@@ -4,5 +4,8 @@
 <ng-container *ngIf='(eventListingDetails?.pastEvents | json) != "{}"'>
     <app-completed-events [pastEvents]='eventListingDetails.pastEvents'></app-completed-events>
 </ng-container>
-<app-cards></app-cards>
-<div style="padding-top: 70px;"></div>
+<ng-container *ngIf='(eventListingDetails.events | json) != "{}"'>
+    <div style='margin-bottom: 70px;'>
+        <app-cards [cardDetails]='eventListingDetails.events'></app-cards>
+    </div>
+</ng-container>

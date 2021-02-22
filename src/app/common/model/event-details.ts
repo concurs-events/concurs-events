@@ -5,7 +5,7 @@ export class EventDetails {
     public eventDesc: Object
     public people: Object
     public sponser: Object
-    public location: Object
+    public locationDetails: Object
 
     constructor(
         heroBanner: Object = {},
@@ -13,13 +13,13 @@ export class EventDetails {
         eventDesc: Object = {},
         people: Object = {},
         sponser: Object = {},
-        location: Object = {}
+        locationDetails: Object = {}
     ) {
         this.heroBanner = heroBanner
         this.startDate = startDate
         this.eventDesc = eventDesc
         this.people = people
         this.sponser = sponser
-        this.location = location
+        this.locationDetails = location
     }
 }

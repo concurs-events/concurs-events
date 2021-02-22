@@ -15,6 +15,7 @@ import { DatePipe } from '@angular/common';
 export class EventDetailsComponent implements OnInit {
 
   public eventsDetails: EventDetails
+  public contactDetails
 
   constructor(private contentfulService: ContentfulService,
     private util: Util,
@@ -46,7 +47,7 @@ export class EventDetailsComponent implements OnInit {
           }
 
           this.eventsDetails.startDate = pageFields.startDate
-
+          console.log(pageFields)
           if ('eventDesc' in pageFields) {
             this.eventsDetails.eventDesc = this.fetchEventDesc(pageFields.eventDesc.sys.id, entryData, assetData)
           }
@@ -60,7 +61,7 @@ export class EventDetailsComponent implements OnInit {
           }
 
           if ('location' in pageFields) {
-            this.eventsDetails.location = this.fetchLocation(pageFields.location.sys.id, entryData)
+            this.fetchLocation(pageFields.location.sys.id, entryData)
           }
         }
       });
@@ -118,7 +119,7 @@ export class EventDetailsComponent implements OnInit {
     contact.phone = obj.phone
     contact.website = obj.website
     contact.loction = obj.location
-    return contact
+    this.contactDetails = contact
   }
 
 }
