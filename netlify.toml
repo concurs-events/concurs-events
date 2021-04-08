@@ -17,3 +17,7 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[build]
+  # Directory with the serverless Lambda functions
+  functions = "lambda_functions"

@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
             this.homeDetails.rtf = this.fetchRtfDetails(pageFields.rtf, entryData, assetData)
           }
           if ('pastEvents' in pageFields) {
-            this.homeDetails.pastEvents = this.fetchPastEvents(pageFields.pastEvents.sys.id, entryData, 'lt')
+            this.homeDetails.pastEvents = this.fetchPastEvents(pageFields.pastEvents.sys.id, entryData, 'lt', '4')
           }
           if ('upcomingEvents' in pageFields) {
             this.homeDetails.events = this.fetchPastEvents(pageFields.upcomingEvents.sys.id, entryData, 'gt', '3')

@@ -32,6 +32,7 @@ import { EvtDescComponent } from '@app/components/evt-desc/evt-desc.component';
 import { PeopleComponent } from '@app/components/people/people.component';
 import { PricingComponent } from '@app/components/pricing/pricing.component';
 import { SponsersComponent } from '@app/components/sponsers/sponsers.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,8 @@ import { SponsersComponent } from '@app/components/sponsers/sponsers.component';
     LightboxModule,
     LazyLoadImageModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ContentfulService,
     Util,

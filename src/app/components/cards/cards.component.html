@@ -5,11 +5,12 @@
             <div class="col-lg-12">
                 <div class="title-box">
                     <h2>{{cardDetails.title}}</h2>
-                    <p>{{cardDetails.shortDescription}} </p>
+                    <p *ngIf='cardDetails.itemsList.length > 0'>{{cardDetails.shortDescription}} </p>
+                    <p *ngIf='cardDetails.itemsList.length == 0'>There are no upcoming events at this time. </p>
                 </div>
             </div>
         </div>
-        <div class="row tx-int">
+        <div class="row tx-int" *ngIf='cardDetails.itemsList.length > 0'>
             <div class="col-lg-4 col-md-6 col-sm-12 cst-card" [ngClass]="{'mx-auto' : alignCenter}"
                 *ngFor='let card of cardDetails.itemsList'>
                 <a href='{{card.cardUrl}}'>
@@ -27,7 +28,7 @@
             </div>
         </div>
         <div>
-            <a class='vi_mr' *ngIf='showViewAll' href='/events'>view all</a>
+            <a class='vi_mr' *ngIf='showViewAll && cardDetails.itemsList.length > 2' href='/events'>view all</a>
         </div>
     </div>
 </div>
