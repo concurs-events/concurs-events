@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FunctionsService } from '@app/service/functions/functions.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact-us',
@@ -11,7 +13,8 @@ export class ContactUsComponent implements OnInit {
   contactForm: FormGroup
   formSubmitted: boolean
 
-  constructor(private builder: FormBuilder,) { }
+  constructor(private builder: FormBuilder,
+    private functionService: FunctionsService) { }
 
   ngOnInit(): void {
     this.formSubmitted = false
@@ -29,6 +32,18 @@ export class ContactUsComponent implements OnInit {
     if (this.contactForm.invalid) {
       return
     }
+    console.log('hi')
+    let body = {
+      "name": this.contactForm.controls.name.value,
+      "email": this.contactForm.controls.email.value,
+      //"attending": "event",
+      "message": this.contactForm.controls.message.value
+    }
+
+    let result = this.functionService.postUserData(body).pipe(take(1))
+      .subscribe(data => {
+        console.log('result ', data)
+      });
   }
 
 }

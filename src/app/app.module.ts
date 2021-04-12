@@ -33,6 +33,7 @@ import { PeopleComponent } from '@app/components/people/people.component';
 import { PricingComponent } from '@app/components/pricing/pricing.component';
 import { SponsersComponent } from '@app/components/sponsers/sponsers.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FunctionsService } from '@app/service/functions/functions.service';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [ContentfulService,
+    FunctionsService,
     Util,
     { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
