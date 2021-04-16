@@ -1,3 +1,10 @@
+
+const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+};
+
 let cachedDb = null;
 const MongoClient = require("mongodb").MongoClient;
 
@@ -22,9 +29,9 @@ const connectToDatabase = async (uri) => {
 const pushToDatabase = async (db, data) => {
     if (data.name && data.email) {
         await db.collection("contact-us").insertMany([data]);
-        return { statusCode: 201, body: '{"code" : 201, "status": "success"}' };
+        return { statusCode: 201, headers, body: '{"code" : 201, "status": "success"}' };
     } else {
-        return { statusCode: 422, body: '{"code" : 422, "status": "Not Found"}' };
+        return { statusCode: 422, headers, body: '{"code" : 422, "status": "Not Found"}' };
     }
 };
 
@@ -39,6 +46,6 @@ module.exports.handler = async (event, context) => {
         case "POST":
             return pushToDatabase(db, JSON.parse(event.body));
         default:
-            return { statusCode: 400, body: '{"code" : 400, "status": "Not Found"}' };
+            return { statusCode: 400, headers, body: '{"code" : 400, "status": "Not Found"}' };
     }
 };
