@@ -12,6 +12,8 @@ export class ContactUsComponent implements OnInit {
 
   contactForm: FormGroup
   formSubmitted: boolean
+  success: boolean = false
+  failed: boolean = false
 
   constructor(private builder: FormBuilder,
     private functionService: FunctionsService) { }
@@ -38,11 +40,21 @@ export class ContactUsComponent implements OnInit {
       //"attending": "event",
       "message": this.contactForm.controls.message.value
     }
+    try {
+      this.functionService.postUserData(body).pipe(take(1))
+        .subscribe(data => {
+          if (data != undefined && data.code == 201) {
+            this.success = true
+            this.contactForm.reset()
+          } else {
+            this.failed = true
+          }
+        });
+    } catch (error) {
+      this.failed = true
+      console.error(error)
+    }
 
-    let result = this.functionService.postUserData(body).pipe(take(1))
-      .subscribe(data => {
-        console.log('result ', data)
-      });
   }
 
 }
