@@ -46,6 +46,7 @@ export class ContactUsComponent implements OnInit {
           if (data != undefined && data.code == 201) {
             this.success = true
             this.contactForm.reset()
+            this.formSubmitted = false
           } else {
             this.failed = true
           }
