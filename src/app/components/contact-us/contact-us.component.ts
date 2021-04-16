@@ -38,7 +38,8 @@ export class ContactUsComponent implements OnInit {
       "name": this.contactForm.controls.name.value,
       "email": this.contactForm.controls.email.value,
       //"attending": "event",
-      "message": this.contactForm.controls.message.value
+      "message": this.contactForm.controls.message.value,
+      "created_at": Date.now()
     }
     try {
       this.functionService.postUserData(body).pipe(take(1))
