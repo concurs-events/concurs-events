@@ -32,7 +32,6 @@ export class ContactUsComponent implements OnInit {
     if (this.contactForm.invalid) {
       return
     }
-    console.log('hi')
     let body = {
       "name": this.contactForm.controls.name.value,
       "email": this.contactForm.controls.email.value,
