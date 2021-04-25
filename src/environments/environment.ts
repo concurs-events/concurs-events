@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  NETLIFY_CONTACT_FUNCTION: 'http://localhost:8888/.netlify/functions/insert-user-data',
+  NETLIFY_EMAIL_FUNCTION: 'http://localhost:8888/.netlify/functions/send-mail',
 };
 
 /*
