@@ -4,7 +4,8 @@ var myModel = null;
 const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST'
+    'Access-Control-Allow-Methods': 'POST',
+    'Content-Type': 'application/json',
 };
 
 const connectToDatabase = async () => {
@@ -17,10 +18,7 @@ const connectToDatabase = async () => {
     });
 }
 
-const generateSchema = async () => {
-
-    if (myModel != null) { return myModel };
-
+const generateSchema = async (model) => {
     const Schema = mongoose.Schema;
     const ObjectId = Schema.ObjectId;
     const user = new Schema({
@@ -28,20 +26,24 @@ const generateSchema = async () => {
         name: String,
         email: String,
         attending: String,
+        message: String,
         udatedDate: {
             type: Date,
             default: Date.now
         }
     });
-    myModel = mongoose.model('contact-us', user);
+    try {
+        myModel = mongoose.model(model);
+    } catch (error) {
+        myModel = mongoose.model(model, user);
+    }
     return myModel;
 }
 
 const pushToDatabase = async (data) => {
-    var Model = await generateSchema();
-    var new_user = new Model(data);
-    await new_user.save().then(item => {
-        return { statusCode: 201, headers, body: '{"code" : 201, "status": "success"}' };
+    var Model = await generateSchema(data.model);
+    return Model.deleteMany().then(item => {
+        return { statusCode: 200, headers, body: '{"code" : 201, "status": "deleted all records from model"}' };
     }).catch(err => {
         return { statusCode: 422, headers, body: '{"code" : 422, "status": "Not Found"}' };
     });

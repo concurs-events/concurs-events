@@ -12,7 +12,10 @@ export class FunctionsService {
     private http: HttpClient,) { }
 
   postUserData(body): Observable<any> {
-    console.log(body)
     return this.http.post<any>(this.util.NETLIFY_CONTACT_FUNCTION, body);
+  }
+
+  sendEmail(body): Observable<any> {
+    return this.http.post<any>(this.util.NETLIFY_EMAIL_FUNCTION, body);
   }
 }

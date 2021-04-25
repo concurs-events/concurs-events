@@ -38,8 +38,7 @@ export class ContactUsComponent implements OnInit {
       "name": this.contactForm.controls.name.value,
       "email": this.contactForm.controls.email.value,
       //"attending": "event",
-      "message": this.contactForm.controls.message.value,
-      "created_at": Date.now()
+      "message": this.contactForm.controls.message.value
     }
     try {
       this.functionService.postUserData(body).pipe(take(1))
@@ -48,6 +47,7 @@ export class ContactUsComponent implements OnInit {
             this.success = true
             this.contactForm.reset()
             this.formSubmitted = false
+            this.functionService.postUserData(data)
           } else {
             this.failed = true
           }
