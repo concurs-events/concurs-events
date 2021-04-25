@@ -1,4 +1,7 @@
 <ng-container *ngIf='(aboutDetails?.breadCrumb | json) != "{}"'>
     <app-breadcrumb [breadCrumb]='aboutDetails.breadCrumb'></app-breadcrumb>
 </ng-container>
-<app-about></app-about>
+<ng-container *ngIf='(aboutDetails.about | json) != "[]"'>
+    <app-about [aboutList]='aboutDetails.about'></app-about>
+</ng-container>
+<!-- <app-testimonial></app-testimonial> -->

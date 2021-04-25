@@ -21,7 +21,6 @@ export class ContactComponent implements OnInit {
     this.contactDetails.breadCrumb = this.formBreadCrumb()
     this.contentfulService.getDataFromContententFul(this.util.CONTACT_CONTENT_TYPE).pipe(take(1))
       .subscribe(data => {
-        console.log(data)
         let pageData = data['items'];
         let pageFields
 

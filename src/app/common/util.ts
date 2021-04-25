@@ -13,6 +13,7 @@ export class Util {
     EVENT_CONTENT_TYPE = 'eventListing';
     SERVICE_CONTENT_TYPE = 'rtf';
     EVENT_DETAILS_CONTENT_TYPE = 'eventPage';
+    ABOUT_CONTENT_TYPE = 'aboutUsPage';
 
     notBlankOrEmpty(input): boolean {
         if (input != undefined && input != '' && input != {} && input != []) {

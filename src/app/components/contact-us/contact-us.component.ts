@@ -47,7 +47,8 @@ export class ContactUsComponent implements OnInit {
             this.success = true
             this.contactForm.reset()
             this.formSubmitted = false
-            this.functionService.sendEmail(data)
+            this.functionService.sendEmail(data).pipe(take(1))
+              .subscribe(emailData => { })
           } else {
             this.failed = true
           }

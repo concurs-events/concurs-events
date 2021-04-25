@@ -34,6 +34,7 @@ import { PricingComponent } from '@app/components/pricing/pricing.component';
 import { SponsersComponent } from '@app/components/sponsers/sponsers.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FunctionsService } from '@app/service/functions/functions.service';
+import { TestimonialComponent } from '@app/components/testimonial/testimonial.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { FunctionsService } from '@app/service/functions/functions.service';
     EvtDescComponent,
     PeopleComponent,
     PricingComponent,
-    SponsersComponent
+    SponsersComponent,
+    TestimonialComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
