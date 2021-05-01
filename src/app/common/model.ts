@@ -15,3 +15,4 @@ export { AboutUs } from '@model/about-us';
 export { EventDetails } from '@model/event-details';
 export { EventDesc } from '@model/event-desc';
 export { EventsCard } from '@model/events-card';
+export { Testimonial } from '@model/testimonial';

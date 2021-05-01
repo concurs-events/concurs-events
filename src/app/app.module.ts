@@ -35,6 +35,7 @@ import { SponsersComponent } from '@app/components/sponsers/sponsers.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FunctionsService } from '@app/service/functions/functions.service';
 import { TestimonialComponent } from '@app/components/testimonial/testimonial.component';
+import { NewsLetterComponent } from '@app/components/news-letter/news-letter.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { TestimonialComponent } from '@app/components/testimonial/testimonial.co
     PeopleComponent,
     PricingComponent,
     SponsersComponent,
-    TestimonialComponent
+    TestimonialComponent,
+    NewsLetterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

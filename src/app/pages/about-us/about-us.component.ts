@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Util } from '@app/common/util';
 import { ContentfulService } from '@app/service/contentful/contentful.service';
-import { AboutUs, BreadCrumb, Section } from '@common/model';
+import { AboutUs, BreadCrumb, Section, Testimonial } from '@common/model';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { take } from 'rxjs/operators';
 
@@ -24,11 +24,16 @@ export class AboutUsComponent implements OnInit {
         let pageData = data['items'];
         let pageFields
         let entryData
+        let assetData
 
         if (pageData != null && pageData.length > 0) {
           pageFields = pageData[0].fields
           if (data['includes'].Entry?.length > 0) {
             entryData = this.contentfulService.formatData(data['includes'].Entry)
+          }
+
+          if (data['includes'].Asset?.length > 0) {
+            assetData = this.contentfulService.formatData(data['includes'].Asset)
           }
 
           if ('aboutDesc' in pageFields) {
@@ -42,6 +47,21 @@ export class AboutUsComponent implements OnInit {
               aboutArray.push(sectionObj)
             });
             this.aboutDetails.about = aboutArray
+          }
+
+          if ('testimonial' in pageFields) {
+            let testimonialList: Testimonial[] = []
+            let testimonialObj: Testimonial
+            pageFields.testimonial.forEach(element => {
+              element = entryData[element.sys.id]?.fields
+              testimonialObj = new Testimonial
+              testimonialObj.name = element.name
+              testimonialObj.designation = element.designation
+              testimonialObj.message = element.message
+              testimonialObj.media = this.contentfulService.fetchMediaDetails(element.image.sys.id, entryData, assetData)
+              testimonialList.push(testimonialObj)
+            });
+            this.aboutDetails.testimonailList = testimonialList
           }
         }
       });
