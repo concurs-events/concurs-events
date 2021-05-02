@@ -1,10 +1,6 @@
 "use strict";
 
-// const template = require("./newsLetter.hbs")
-
 const nodemailer = require("nodemailer");
-const path = require('path')
-const hbs = require("nodemailer-express-handlebars");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const mongoose = require('mongoose');
@@ -74,18 +70,6 @@ const createMailServer = async (accessToken) => {
         }
     });
 
-    const handlebarOptions = {
-        viewEngine: {
-            extName: ".hbs",
-            partialsDir: path.resolve('./templates'),
-            defaultLayout: false,
-        },
-        viewPath: path.resolve(__dirname),
-        extName: ".hbs",
-    };
-
-
-    transporter.use('compile', hbs(handlebarOptions))
     return transporter;
 }
 
@@ -117,9 +101,9 @@ const sendMail = async (transporter, data) => {
 
     const result = await transporter.sendMail({
         subject: "Concurs Events - New News Letter Subscription!!",
-        to: "devaprakash619@gmail.com",
+        to: process.env.RECEVER_MAIL_ID,
         from: emailId,
-        template: 'newsLetter',
+        html: await getTemplate(data.email, count),
         context: {
             email: data.email,
             total: count
@@ -135,4 +119,13 @@ module.exports.handler = async (event, context) => {
     const transporter = await createMailServer(accessToken);
     const result = await sendMail(transporter, JSON.parse(event.body))
     return { statusCode: 201, headers, body: '{"code" : 201, "status": "success"}' };
+};
+
+const getTemplate = async (email, count) => {
+    return `<p>There is new News Letter Subscription</p>
+  <br>
+  <ul>
+      <li>New User : ` + email + `</li>
+      <li>Total Subscriptions :  ` + count + `</li>
+  </ul>`
 };

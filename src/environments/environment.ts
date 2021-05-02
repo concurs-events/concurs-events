@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  NETLIFY_CONTACT_FUNCTION: 'http://localhost:8888/.netlify/functions/insert-user-data',
-  NETLIFY_EMAIL_FUNCTION: 'http://localhost:8888/.netlify/functions/send-mail',
-  NETLIFY_SUBSCRIBE_NEWSLETTER_FUNCTION: 'http://localhost:8888/.netlify/functions/subscribe-news-letter',
-  NETLIFY_NEWSLETTER_EMAIL_FUNCTION: 'http://localhost:8888/.netlify/functions/subscribe-mail',
+  NETLIFY_CONTACT_FUNCTION: 'http://localhost:8888/api/insert-user-data',
+  NETLIFY_EMAIL_FUNCTION: 'http://localhost:8888/api/send-mail',
+  NETLIFY_SUBSCRIBE_NEWSLETTER_FUNCTION: 'http://localhost:8888/api/subscribe-news-letter',
+  NETLIFY_NEWSLETTER_EMAIL_FUNCTION: 'http://localhost:8888/api/subscribe-mail',
 };
 
 /*
