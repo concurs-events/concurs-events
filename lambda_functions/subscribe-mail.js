@@ -1,6 +1,6 @@
 "use strict";
 
-const template = require("../templates/newsLetter.hbs")
+const template = require("./newsLetter.hbs")
 
 const nodemailer = require("nodemailer");
 const path = require('path')
@@ -80,7 +80,7 @@ const createMailServer = async (accessToken) => {
             partialsDir: path.resolve('./templates'),
             defaultLayout: false,
         },
-        viewPath: path.resolve('./templates'),
+        viewPath: path.resolve(__dirname),
         extName: ".hbs",
     };
 
