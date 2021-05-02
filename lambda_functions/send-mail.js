@@ -75,8 +75,7 @@ const sendMail = async (transporter, data) => {
         //html: { path: 'mailTemplate.html' },
         to: process.env.RECEVER_MAIL_ID,
         from: emailId,
-        template: 'mailTemplate',
-        context: data
+        html: await getTemplate(data),
     });
     return result;
 };
@@ -87,4 +86,52 @@ module.exports.handler = async (event, context) => {
     const result = await sendMail(transporter, JSON.parse(event.body))
     console.log(result)
     return { statusCode: 201, headers, body: '{"code" : 201, "status": "success"}' };
+};
+
+const getTemplate = async (data) => {
+    return `<html>
+    <head>
+    <style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+    <body>
+    <p>
+      There is a new enquiry for some of our events 
+    </p>
+    <table id="customers">
+        <tr>
+          <th>name</th>
+          <th>email</th>
+          <th>message</th>
+        </tr>
+        <tr>
+        <td>`+ data.name + `</td>
+        <td>`+ data.email + `</td>
+        <td>`+ data.message + `</td>
+      </tr>
+    </table>
+    </body>
+    </html>`
 };

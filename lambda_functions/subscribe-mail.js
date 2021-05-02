@@ -122,7 +122,7 @@ module.exports.handler = async (event, context) => {
 };
 
 const getTemplate = async (email, count) => {
-    return `<p>There is new News Letter Subscription</p>
+    return `<p>There is a new News Letter Subscription</p>
   <br>
   <ul>
       <li>New User : ` + email + `</li>
