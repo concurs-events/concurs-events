@@ -14,6 +14,7 @@ import { DatePipe } from '@angular/common';
 export class HomeComponent implements OnInit {
 
   public homeDetails: HomeDetails = new HomeDetails;
+  public showNewsLetter = false;
   constructor(private contentfulService: ContentfulService,
     private util: Util,
     private datePipe: DatePipe,) { }
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit {
             this.homeDetails.gallery = this.fetchGallery(pageFields.gallery.sys.id, entryData, assetData)
           }
         }
+        this.showNewsLetter = true
       });
   }
 
