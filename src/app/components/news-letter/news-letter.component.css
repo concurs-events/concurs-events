@@ -50,6 +50,7 @@
 	border-radius: 50px;
 	border: none;
 	padding-right: 140px;
+	outline: none;
 }
 
 .newslatter-inner .ni-form input::-webkit-input-placeholder {
@@ -86,6 +87,10 @@
 	top: 5px;
     background-image: -o-linear-gradient(330deg, #dd666c 100%, #ee8425 0%), -o-linear-gradient(330deg, #dd666c 100%, #ee8425 0%);
 	background-image: linear-gradient(120deg, #dd666c 100%, #ee8425 0%), linear-gradient(120deg, #dd666c 100%, #ee8425 0%);
+}
+
+.newslatter-inner .ni-form button:hover {
+	cursor: pointer;
 }
 
 
@@ -191,3 +196,4 @@
         width: 90px;
 	}
 }
+
