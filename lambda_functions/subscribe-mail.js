@@ -117,7 +117,7 @@ const sendMail = async (transporter, data) => {
 
     const result = await transporter.sendMail({
         subject: "Concurs Events - New News Letter Subscription!!",
-        to: process.env.RECEVER_MAIL_ID,
+        to: "devaprakash619@gmail.com",
         from: emailId,
         template: 'newsLetter',
         context: {
