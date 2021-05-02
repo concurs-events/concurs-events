@@ -1,6 +1,6 @@
 "use strict";
 
-const template = require("./newsLetter.hbs")
+// const template = require("./newsLetter.hbs")
 
 const nodemailer = require("nodemailer");
 const path = require('path')
