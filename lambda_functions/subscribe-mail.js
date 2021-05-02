@@ -1,4 +1,7 @@
 "use strict";
+
+const template = require("../templates/newsLetter.hbs")
+
 const nodemailer = require("nodemailer");
 const path = require('path')
 const hbs = require("nodemailer-express-handlebars");
