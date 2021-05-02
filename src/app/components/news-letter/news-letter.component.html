@@ -5,9 +5,18 @@
                 <h3>Subscribe Newsletter</h3>
                 <p>Subscribe to our newsletter and don’t miss anything</p>
             </div>
-            <form action="#" class="ni-form">
-                <input type="text" placeholder="Your email">
-                <button type="submit">Subscribe</button>
+            <form [formGroup]="newsForm" (ngSubmit)='submitForm()' class="ni-form">
+                <input type="text" formControlName="email" class="form-control" placeholder="Your email">
+                <div class="help-block with-errors err" *ngIf='formSubmitted && form.email.errors?.required'>
+                    Please enter Email</div>
+                <div class="help-block with-errors err"
+                    *ngIf='formSubmitted && !form.email.errors?.required && form.email.errors?.email'>
+                    Please enter Valid Email</div>
+                <button type="submit" id='submitBtn'><span id='subscribe'>Subscribe</span>
+                    <i id='spinner' class="fa fa-spinner fa-spin hide"></i>
+                    <i id='success' class="fa fa-check hide"></i>
+                    <i id='error' class="fa fa-exclamation hide"></i>
+                </button>
             </form>
         </div>
     </div>

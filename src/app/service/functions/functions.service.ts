@@ -18,4 +18,12 @@ export class FunctionsService {
   sendEmail(body): Observable<any> {
     return this.http.post<any>(this.util.NETLIFY_EMAIL_FUNCTION, body);
   }
+
+  subscribeNewsLetter(body): Observable<any> {
+    return this.http.post<any>(this.util.NETLIFY_SUBSCRIBE_NEWSLETTER_FUNCTION, body);
+  }
+
+  sendNewsLetterEmail(body): Observable<any> {
+    return this.http.post<any>(this.util.NETLIFY_NEWSLETTER_EMAIL_FUNCTION, body);
+  }
 }

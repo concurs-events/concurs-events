@@ -4,6 +4,8 @@ const path = require('path')
 const hbs = require("nodemailer-express-handlebars");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
+const mongoose = require('mongoose');
+var myModel = null;
 
 const emailId = 'concursevents@gmail.com';
 const refreshToken = '1//04Af9JEIKeutECgYIARAAGAQSNwF-L9Ir42Hs_99wiOQqofXJzw7WokEo1bKMDeahhhc9YOeGBVlv5HcP1oMZ4AehkTZbqweF2cc';
@@ -16,6 +18,44 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST',
     'Content-Type': 'application/json'
+};
+
+const connectToDatabase = async () => {
+
+    await mongoose.connect('mongodb+srv://client-portal-api:August2K18@ce.uojaw.mongodb.net/concurs-events-api?retryWrites=true&w=majority', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true
+    });
+}
+
+const generateSchema = async () => {
+    const Schema = mongoose.Schema;
+    const ObjectId = Schema.ObjectId;
+    const user = new Schema({
+        id: ObjectId,
+        email: String,
+        createdAt: {
+            type: Date,
+            immutable: true
+        }
+    }, { timestamps: true });
+    try {
+        myModel = mongoose.model('news-letter-subscriptions');
+    } catch (error) {
+        myModel = mongoose.model('news-letter-subscriptions', user);
+    }
+    return myModel;
+}
+
+const countData = async () => {
+    var Model = await generateSchema();
+
+    return Model.countDocuments({}, function (err, c) {
+        return c
+    });
+
 };
 
 const createMailServer = async (accessToken) => {
@@ -70,21 +110,26 @@ const getAccessToken = async () => {
 }
 
 const sendMail = async (transporter, data) => {
+    const count = await countData()
+
     const result = await transporter.sendMail({
-        subject: "Concurs Events - New Enquirey!!",
-        //html: { path: 'mailTemplate.html' },
+        subject: "Concurs Events - New News Letter Subscription!!",
         to: process.env.RECEVER_MAIL_ID,
         from: emailId,
-        template: 'mailTemplate',
-        context: data
+        template: 'newsLetter',
+        context: {
+            email: data.email,
+            total: count
+        }
     });
     return result;
 };
 
 module.exports.handler = async (event, context) => {
+    await connectToDatabase();
+
     const accessToken = await getAccessToken();
     const transporter = await createMailServer(accessToken);
     const result = await sendMail(transporter, JSON.parse(event.body))
-    console.log(result)
     return { statusCode: 201, headers, body: '{"code" : 201, "status": "success"}' };
 };
